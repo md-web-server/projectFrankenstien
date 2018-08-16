@@ -7,11 +7,12 @@ const urlArray = [ 'https://github.com/MichaelDimmitt/gh_reveal/commit/03b735983
 
 async function server() {
   rootRoute(expressApp)
+  commitRoute(expressApp)
   portNum(expressApp)
 }
 server();
 
-function rootRoute(app){
+function rootRoute(app) {
   app.get('/', async function(req,res) {
     const networkRequest = axios.get(urlArray[0]);
     foo(await networkRequest);
@@ -20,6 +21,18 @@ function rootRoute(app){
       ${(await networkRequest).data}`
     )
   });
+}
+
+function commitRoute(app) {
+  app.get('/*/commit/*', async function(req,res) {
+    const url = 'https://github.com/'+req.url;
+    const networkRequest = axios.get(url)
+    foo(await networkRequest);
+    res.send(`
+      <html><body><h1>My Server</h1></body></html>
+      ${(await networkRequest).data}`
+    )
+  }); 
 }
 
 function portNum(app){
