@@ -4,6 +4,8 @@ var expressApp = express();
 var axios = require("axios");
 const port = 3005;
 const urlArray = [ 'https://github.com/MichaelDimmitt/gh_reveal/commit/03b735983ad0b05d3f66f908b2ffda47012b16e8' ]
+const { documentInclusionLogic, btw } = require('./documentParser/inclusionLogic.js')
+console.log(documentInclusionLogic, btw)
 
 async function server() {
   rootRoute(expressApp)
