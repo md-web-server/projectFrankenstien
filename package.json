@@ -4,11 +4,14 @@
   "description": "tools so you can make your own monster!",
   "main": "exclusionLogic.js",
   "scripts": {
+    "test": "jest --coverage --coverageDirectory=.coverage",
     "start": "node server.js"
   },
   "author": "Michael Dimmitt",
   "license": "MIT",
   "devDependencies": {
     "jest": "^23.5.0"
+  },
+  "dependencies": {
   }
 }
